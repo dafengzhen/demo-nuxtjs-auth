@@ -28,11 +28,11 @@
 				<div class="container">
 					<label>
 						<b>Username</b>
-						<input type="text" v-model="username" placeholder="Enter Username" name="username" required>
+						<input type="text" placeholder="Enter Username" name="username" required>
 					</label>
 					<label>
 						<b>Password</b>
-						<input type="password" v-model="password" placeholder="Enter Password" name="password" required>
+						<input type="password" placeholder="Enter Password" name="password" required>
 					</label>
 					<button type="button" class="registerbtn" v-on:click="register">Register</button>
 				</div>
@@ -43,11 +43,11 @@
 
 <script>
 export default {
-
 	data() {
 		return {
 			username: '',
-			password: ''
+			password: '',
+			register_data: {},
 		}
 	},
 
@@ -62,13 +62,21 @@ export default {
 
 	methods: {
 		// 登录
-		login() {
-
+		async login() {
+			try {
+				await this.$auth.loginWith('local', {data: this.register_data});
+				alert('登录成功：' + this.$auth.loggedIn);
+			} catch (err) {
+				console.error(err)
+			}
 		},
 
 		// 注册
-		register() {
-
+		async register() {
+			this.register_data = await this.$axios.$get('http://localhost:8080/register');
+			this.username = this.register_data.username;
+			this.password = this.register_data.password;
+			alert('注册成功，直接点击登录按钮即可');
 		}
 	}
 }
