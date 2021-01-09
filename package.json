@@ -1,0 +1,21 @@
+{
+  "name": "demo-nuxtjs-auth",
+  "version": "1.0.0",
+  "description": "使用 nuxtjs/auth 模块",
+  "main": "index.js",
+  "scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1",
+	"dev": "nuxt"
+  },
+  "repository": {
+	"type": "git",
+	"url": "git+https://github.com/dafengzhen/demo-nuxtjs-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+	"url": "https://github.com/dafengzhen/demo-nuxtjs-auth/issues"
+  },
+  "homepage": "https://github.com/dafengzhen/demo-nuxtjs-auth#readme"
+}
